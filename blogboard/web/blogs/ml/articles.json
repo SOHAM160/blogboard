@@ -1,0 +1,16 @@
+[
+  {
+    "id": "blogs/ml/explainable-ai-techniques.md",
+    "category": "ml",
+    "topic": "Explainable AI: Techniques for Interpreting Machine Learning Models",
+    "subtopics": "Model interpretability methods, Feature importance and partial dependence plots, SHAP values and LIME, Model-agnostic interpretability techniques",
+    "title": "Explainable AI",
+    "description": "Unlock secrets of machine learning models with explainable AI techniques",
+    "date": "2026-07-31",
+    "tags": [
+      "ml"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/ml/explainable-ai-techniques.md"
+  }
+]
