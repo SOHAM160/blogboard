@@ -1,0 +1,72 @@
+[
+  {
+    "id": "blogs/genai/gen-ai-for-education.md",
+    "category": "genai",
+    "topic": "Gen AI For Education",
+    "subtopics": "AI-generated educational content, Generative models for personalized learning and adaptive assessments, Intelligent tutoring systems with conversational AI, Generative AI-powered educational game development",
+    "title": "Gen AI For Ed",
+    "description": "Discover how Gen AI transforms education with personalized learning, AI-generated content & more",
+    "date": "August 1, 2026",
+    "tags": [
+      "genai"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/genai/gen-ai-for-education.md"
+  },
+  {
+    "id": "blogs/genai/generative-ai-cybersecurity.md",
+    "category": "genai",
+    "topic": "Generative AI for Cybersecurity",
+    "subtopics": "AI-generated threat detection, Generative models for vulnerability exploitation and patching, Adversarial training for robust security systems, Generative AI-powered incident response and remediation",
+    "title": "Gen AI for Cyber",
+    "description": "Discover how Generative AI revolutionizes cybersecurity with innovative threat detection and prevention solutions.",
+    "date": "August 1, 2026",
+    "tags": [
+      "genai"
+    ],
+    "readTime": "3 min",
+    "file": "blogs/genai/generative-ai-cybersecurity.md"
+  },
+  {
+    "id": "blogs/genai/generative-ai-for-hci.md",
+    "category": "genai",
+    "topic": "Generative AI for Human-Computer Interaction",
+    "subtopics": "AI-generated user interfaces, Generative models for accessibility and inclusive design, Conversational AI for interactive systems, Generative AI-powered chatbots for customer support",
+    "title": "Gen AI For HCI",
+    "description": "Discover how Generative AI revolutionizes Human-Computer Interaction with intelligent interfaces and conversational systems",
+    "date": "August 1, 2026",
+    "tags": [
+      "genai"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/genai/generative-ai-for-hci.md"
+  },
+  {
+    "id": "blogs/genai/generative-ai-creative-industries.md",
+    "category": "genai",
+    "topic": "Generative AI for Creative Industries",
+    "subtopics": "AI-generated music and audio, Generative AI for video game development, AI-assisted storytelling and content creation, Generative AI in digital art and design",
+    "title": "Gen AI For Creative",
+    "description": "Discover how Generative AI transforms music, video games, storytelling & digital art",
+    "date": "August 1, 2026",
+    "tags": [
+      "genai"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/genai/generative-ai-creative-industries.md"
+  },
+  {
+    "id": "blogs/genai/generative-ai-applications.md",
+    "category": "genai",
+    "topic": "Exploring the Frontiers of Generative AI: Applications and Implications",
+    "subtopics": "Foundational models for text and image generation, Adversarial training methods for improved robustness, Generative AI for data augmentation and synthetic data creation, Ethical considerations and potential biases in generative models",
+    "title": "Generative AI Explained",
+    "description": "Discover the power of generative AI and its applications in healthcare, finance, and entertainment",
+    "date": "August 1, 2026",
+    "tags": [
+      "genai"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/genai/generative-ai-applications.md"
+  }
+]

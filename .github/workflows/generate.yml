@@ -41,28 +41,8 @@ jobs:
       - name: 🔧 Install dependencies
         run: uv sync
 
-      - name: 📝 Generate tutorial article
-        run: uv run python -m blogboard.run
-
-      - name: 📰 Generate AI news article
-        run: uv run python -m blogboard.run --ainews
-
-      - name: 📥 Download articles from R2 to local
-        run: |
-          for cat in ml dl nlp cv genai ainews statistics; do
-            url="https://pub-e5fe2ead9ea34b81b4020414cec48403.r2.dev/blogs/${cat}/articles.json"
-            dest="blogboard/web/blogs/${cat}/articles.json"
-            mkdir -p "blogboard/web/blogs/${cat}"
-            curl -sf "$url" -o "$dest" 2>/dev/null || echo "[]" > "$dest"
-            
-            # Download each article's .md file listed in articles.json
-            if [ -f "$dest" ] && [ "$(cat "$dest")" != "[]" ]; then
-              for file in $(python3 -c "import json; data=json.load(open('$dest')); [print(a['file']) for a in data]" 2>/dev/null); do
-                md_url="https://pub-e5fe2ead9ea34b81b4020414cec48403.r2.dev/${file}"
-                curl -sf "$md_url" -o "blogboard/web/${file}" 2>/dev/null || true
-              done
-            fi
-          done
+      - name: 📝 Run Auto-Generator & Sync (with Retry Logic)
+        run: uv run python daily_auto_generate.py
 
       - name: 🚀 Commit and push new articles
         run: |

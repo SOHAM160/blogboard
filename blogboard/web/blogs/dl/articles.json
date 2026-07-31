@@ -1,18 +1,72 @@
 [
   {
-    "id": "blogs/dl/deep-learning-intro.md",
+    "id": "blogs/dl/deep-learning-for-computer-vision.md",
     "category": "dl",
-    "title": "Deep Learning Intro",
-    "description": "Learn deep learning fundamentals and boost your AI skills",
-    "date": "2026-03-03",
+    "topic": "Deep Learning for Computer Vision in Adverse Conditions",
+    "subtopics": "Adversarial Robustness, Low-Light Image Enhancement, Foggy Scene Understanding, Underwater Object Detection",
+    "title": "Deep Learning for Vision",
+    "description": "Explore deep learning techniques for computer vision in adverse conditions",
+    "date": "August 1, 2026",
     "tags": [
-      "deep-learning",
-      "neural-networks",
-      "artificial-intelligence",
-      "machine-learning",
-      "ai-models"
+      "dl"
     ],
-    "readTime": "8 min",
-    "file": "blogs/dl/deep-learning-intro.md"
+    "readTime": "4 min",
+    "file": "blogs/dl/deep-learning-for-computer-vision.md"
+  },
+  {
+    "id": "blogs/dl/deep-learning-robotics.md",
+    "category": "dl",
+    "topic": "Deep Learning for Robotics and Control",
+    "subtopics": "Reinforcement Learning, Imitation Learning, Model Predictive Control, Deep Robotic Perception",
+    "title": "Deep Learning Robotics",
+    "description": "Discover how deep learning revolutionizes robotics and control, enabling intelligent and autonomous robots.",
+    "date": "August 1, 2026",
+    "tags": [
+      "dl"
+    ],
+    "readTime": "6 min",
+    "file": "blogs/dl/deep-learning-robotics.md"
+  },
+  {
+    "id": "blogs/dl/deep-learning-time-series-forecasting.md",
+    "category": "dl",
+    "topic": "Deep Learning for Time Series Forecasting",
+    "subtopics": "Recurrent Neural Networks, Long Short-Term Memory Networks, Graph Neural Networks, Autoencoders",
+    "title": "Deep Learning Forecasting",
+    "description": "Unlock accurate predictions with deep learning for time series forecasting",
+    "date": "August 1, 2026",
+    "tags": [
+      "dl"
+    ],
+    "readTime": "3 min",
+    "file": "blogs/dl/deep-learning-time-series-forecasting.md"
+  },
+  {
+    "id": "blogs/dl/deep-learning-for-low-resource-nlp.md",
+    "category": "dl",
+    "topic": "Deep Learning for Natural Language Processing in Low-Resource Languages",
+    "subtopics": "Language Modeling, Transfer Learning, Multilingual Embeddings, Zero-Shot Learning",
+    "title": "Deep Learning for NLP",
+    "description": "Discover how deep learning revolutionizes NLP in low-resource languages",
+    "date": "August 1, 2026",
+    "tags": [
+      "dl"
+    ],
+    "readTime": "3 min",
+    "file": "blogs/dl/deep-learning-for-low-resource-nlp.md"
+  },
+  {
+    "id": "blogs/dl/explainable-deep-learning-for-computer-vision.md",
+    "category": "dl",
+    "topic": "Explainable Deep Learning for Computer Vision",
+    "subtopics": "Model Interpretability, Attention Mechanisms, Saliency Maps, Adversarial Attacks",
+    "title": "Explainable AI Vision",
+    "description": "Unlock deep learning transparency with explainable AI for computer vision",
+    "date": "August 1, 2026",
+    "tags": [
+      "dl"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/dl/explainable-deep-learning-for-computer-vision.md"
   }
 ]

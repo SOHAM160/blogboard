@@ -95,9 +95,9 @@ const R2_PUBLIC_URL = (typeof window !== 'undefined' && window.CONFIG && window.
 async function loadCategoryArticles(cat) {
   if (_cache[cat] !== undefined) return _cache[cat];
 
-  // Try local relative path first (avoids CORS issues)
-  const localUrl = `blogs/${cat}/articles.json`;
-  const r2Url = `${R2_PUBLIC_URL}/blogs/${cat}/articles.json`;
+  // Try local relative path first (avoids CORS issues), using cache buster
+  const localUrl = `blogs/${cat}/articles.json?t=${Date.now()}`;
+  const r2Url = `${R2_PUBLIC_URL}/blogs/${cat}/articles.json?t=${Date.now()}`;
 
   for (const url of [localUrl, r2Url]) {
     try {
@@ -178,8 +178,16 @@ async function getTotalCount() {
 /* ── Formatting ─────────────────────────────────────────── */
 function formatDate(dateStr) {
   if (!dateStr) return '';
+  if (!dateStr.includes('-')) {
+    // Fallback for "August 1, 2026" formats
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
   const [y, m, d] = dateStr.split('-').map(Number);
-  return new Date(y, m - 1, d).toLocaleDateString('en-US', {
+  const dateObj = new Date(y, m - 1, d);
+  if (isNaN(dateObj.getTime())) return dateStr;
+  return dateObj.toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric',
   });
 }

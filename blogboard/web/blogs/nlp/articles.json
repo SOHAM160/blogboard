@@ -1,0 +1,72 @@
+[
+  {
+    "id": "blogs/nlp/explainable-nlp-tutorial.md",
+    "category": "nlp",
+    "topic": "Explainable NLP",
+    "subtopics": "Interpretability methods for neural language models, Attention mechanism analysis for understanding model decisions, Model-agnostic explainability techniques for NLP, Evaluating explanations in NLP models",
+    "title": "Explainable NLP",
+    "description": "Learn about explainable NLP techniques for interpreting neural language models",
+    "date": "August 1, 2026",
+    "tags": [
+      "nlp"
+    ],
+    "readTime": "3 min",
+    "file": "blogs/nlp/explainable-nlp-tutorial.md"
+  },
+  {
+    "id": "blogs/nlp/cognitive-architectures-for-nlp.md",
+    "category": "nlp",
+    "topic": "Cognitive Architectures for NLP",
+    "subtopics": "Integrating cognitive models with language models, Cognitive architectures for dialogue systems, Modeling human-like reasoning in NLP, Neurosymbolic approaches for cognitive NLP",
+    "title": "Cognitive NLP",
+    "description": "Discover how cognitive architectures enhance NLP with human-like reasoning and understanding",
+    "date": "August 1, 2026",
+    "tags": [
+      "nlp"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/nlp/cognitive-architectures-for-nlp.md"
+  },
+  {
+    "id": "blogs/nlp/low-resource-language-understanding.md",
+    "category": "nlp",
+    "topic": "Low-Resource Language Understanding",
+    "subtopics": "Language model adaptation for low-resource languages, Transfer learning for scarce linguistic data, Data augmentation techniques for under-resourced languages, Cross-lingual learning for improved language understanding",
+    "title": "Low-Resource Lang",
+    "description": "Discover techniques for low-resource language understanding",
+    "date": "August 1, 2026",
+    "tags": [
+      "nlp"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/nlp/low-resource-language-understanding.md"
+  },
+  {
+    "id": "blogs/nlp/multimodal-nlp-tutorial.md",
+    "category": "nlp",
+    "topic": "Multimodal Natural Language Processing",
+    "subtopics": "Vision-language models, Multimodal sentiment analysis, Multimodal machine translation, Visual question answering",
+    "title": "Multimodal NLP",
+    "description": "Explore multimodal NLP, vision-language models, sentiment analysis & more",
+    "date": "August 1, 2026",
+    "tags": [
+      "nlp"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/nlp/multimodal-nlp-tutorial.md"
+  },
+  {
+    "id": "blogs/nlp/explainable-ai-in-nlp.md",
+    "category": "nlp",
+    "topic": "Explainable AI in Natural Language Processing",
+    "subtopics": "Model interpretability techniques, Attention mechanisms in transformer models, Analyzing bias in language models, Evaluating explanations in NLP tasks",
+    "title": "Explainable AI in NLP",
+    "description": "Discover how explainable AI in NLP works, model interpretability techniques, and more",
+    "date": "August 1, 2026",
+    "tags": [
+      "nlp"
+    ],
+    "readTime": "4 min",
+    "file": "blogs/nlp/explainable-ai-in-nlp.md"
+  }
+]

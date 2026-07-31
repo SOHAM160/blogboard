@@ -22,18 +22,23 @@ def tutorial_node(state: BlogState) -> BlogState:
     subtopics = state.get("subtopics", "")
     
     if not topic:
-        # Pick domain
-        domain_dates = storage.get_all_domains_last_updated()
-        # Filter out ainews so tutorial agent doesn't pick it
-        valid_domains = {k: v for k, v in domain_dates.items() if k != "ainews"}
-        
-        sorted_domains = sorted(valid_domains.items(), key=lambda item: item[1])
-        target_domain = sorted_domains[0][0]
+        # Check if a domain was pre-set in state (e.g. by bulk_generate.py)
+        preset_domain = state.get("domain")
+        if preset_domain and preset_domain != "ainews":
+            target_domain = preset_domain
+            print(f"  [AGENT] Using pre-set domain: {target_domain}")
+        else:
+            # Auto-pick domain based on least recently updated
+            domain_dates = storage.get_all_domains_last_updated()
+            # Filter out ainews so tutorial agent doesn't pick it
+            valid_domains = {k: v for k, v in domain_dates.items() if k != "ainews"}
+            
+            sorted_domains = sorted(valid_domains.items(), key=lambda item: item[1])
+            target_domain = sorted_domains[0][0]
+            print(f"  [AGENT] Autonomously selected domain: {target_domain}")
         
         tags_config = app_settings.tags.model_dump()
         cat_label = tags_config.get(target_domain, {}).get("label", target_domain)
-        
-        print(f"  [AGENT] Autonomously selected domain: {target_domain}")
         
         recent_history = storage.get_recent_history(target_domain, limit=3)
         history_str = "No recent history found."
