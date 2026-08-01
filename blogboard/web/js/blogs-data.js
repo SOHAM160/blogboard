@@ -23,7 +23,7 @@ const CATEGORY_META = {
     label: 'Machine Learning',
     shortLabel: 'ML',
     description: 'Algorithms, theory, and applied ML from fundamentals to production.',
-    icon: '🧠',
+    icon: '',
     color: '#7c6af7',
     bgColor: 'rgba(124, 106, 247, 0.12)',
   },
@@ -31,7 +31,7 @@ const CATEGORY_META = {
     label: 'Deep Learning',
     shortLabel: 'DL',
     description: 'Neural networks, architectures, training tricks, and modern DL research.',
-    icon: '🔬',
+    icon: '',
     color: '#4fc8b8',
     bgColor: 'rgba(79, 200, 184, 0.12)',
   },
@@ -39,7 +39,7 @@ const CATEGORY_META = {
     label: 'Natural Language Processing',
     shortLabel: 'NLP',
     description: 'Text processing, transformers, LLMs, and language understanding.',
-    icon: '📝',
+    icon: '',
     color: '#e879a0',
     bgColor: 'rgba(232, 121, 160, 0.12)',
   },
@@ -47,7 +47,7 @@ const CATEGORY_META = {
     label: 'Computer Vision',
     shortLabel: 'CV',
     description: 'Image processing, object detection, segmentation, and visual AI.',
-    icon: '👁️',
+    icon: '',
     color: '#f59e0b',
     bgColor: 'rgba(245, 158, 11, 0.12)',
   },
@@ -55,7 +55,7 @@ const CATEGORY_META = {
     label: 'Generative AI',
     shortLabel: 'Gen AI',
     description: 'Diffusion models, LLMs, RAG, agents, and the frontier of AI generation.',
-    icon: '✨',
+    icon: '',
     color: '#a78bfa',
     bgColor: 'rgba(167, 139, 250, 0.12)',
   },
@@ -63,7 +63,7 @@ const CATEGORY_META = {
     label: 'AI News',
     shortLabel: 'AI News',
     description: 'Breaking developments, model releases, and industry analysis.',
-    icon: '📡',
+    icon: '',
     color: '#34d399',
     bgColor: 'rgba(52, 211, 153, 0.12)',
   },
@@ -71,7 +71,7 @@ const CATEGORY_META = {
     label: 'Statistics for AI',
     shortLabel: 'Stats',
     description: 'Probability, statistical tests, distributions, and the math behind ML.',
-    icon: '📊',
+    icon: '',
     color: '#fb923c',
     bgColor: 'rgba(251, 146, 60, 0.12)',
   },
@@ -176,18 +176,24 @@ async function getTotalCount() {
 }
 
 /* ── Formatting ─────────────────────────────────────────── */
-function formatDate(dateStr) {
+function formatDate(dateStr, timeStr) {
   if (!dateStr) return '';
+  let formatted = dateStr;
   if (!dateStr.includes('-')) {
     // Fallback for "August 1, 2026" formats
     const d = new Date(dateStr);
-    if (isNaN(d.getTime())) return dateStr;
-    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    if (!isNaN(d.getTime())) {
+      formatted = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+  } else {
+    const [y, m, d] = dateStr.split('-').map(Number);
+    const dateObj = new Date(y, m - 1, d);
+    if (!isNaN(dateObj.getTime())) {
+      formatted = dateObj.toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric',
+      });
+    }
   }
-  const [y, m, d] = dateStr.split('-').map(Number);
-  const dateObj = new Date(y, m - 1, d);
-  if (isNaN(dateObj.getTime())) return dateStr;
-  return dateObj.toLocaleDateString('en-US', {
-    year: 'numeric', month: 'long', day: 'numeric',
-  });
+  const timeSuffix = timeStr ? ` • ${timeStr}` : ' • 08:00 AM IST';
+  return formatted + timeSuffix;
 }

@@ -66,11 +66,11 @@ async function loadRecentPosts() {
         <span class="recent-cat-badge" style="background:${meta.bgColor};color:${meta.color}">
           ${meta.shortLabel}
         </span>
-        <span class="recent-date">${formatDate(blog.date)}</span>
+        <span class="recent-date">${formatDate(blog.date, blog.time)}</span>
       </div>
       <h3 class="recent-title">${escapeHtml(blog.title)}</h3>
       <p class="recent-desc">${escapeHtml(blog.description)}</p>
-      <span class="recent-readtime">📖 ${blog.readTime} read</span>
+      <span class="recent-readtime">${blog.readTime} read</span>
     </a>`;
     }).join('');
 }

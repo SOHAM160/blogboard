@@ -11,7 +11,8 @@
       "statistics"
     ],
     "readTime": "5 min",
-    "file": "blogs/statistics/explainability-in-ai.md"
+    "file": "blogs/statistics/explainability-in-ai.md",
+    "time": "06:24 AM IST"
   },
   {
     "id": "blogs/statistics/ai-model-drift-concept-drift.md",
@@ -25,7 +26,8 @@
       "statistics"
     ],
     "readTime": "4 min",
-    "file": "blogs/statistics/ai-model-drift-concept-drift.md"
+    "file": "blogs/statistics/ai-model-drift-concept-drift.md",
+    "time": "10:04 AM IST"
   },
   {
     "id": "blogs/statistics/ai-fairness-statistics.md",
@@ -39,7 +41,8 @@
       "statistics"
     ],
     "readTime": "4 min",
-    "file": "blogs/statistics/ai-fairness-statistics.md"
+    "file": "blogs/statistics/ai-fairness-statistics.md",
+    "time": "09:38 PM IST"
   },
   {
     "id": "blogs/statistics/adversarial-robustness-in-ai.md",
@@ -53,7 +56,8 @@
       "statistics"
     ],
     "readTime": "4 min",
-    "file": "blogs/statistics/adversarial-robustness-in-ai.md"
+    "file": "blogs/statistics/adversarial-robustness-in-ai.md",
+    "time": "08:59 PM IST"
   },
   {
     "id": "blogs/statistics/explainable-ai-through-statistical-modeling.md",
@@ -67,6 +71,7 @@
       "statistics"
     ],
     "readTime": "4 min",
-    "file": "blogs/statistics/explainable-ai-through-statistical-modeling.md"
+    "file": "blogs/statistics/explainable-ai-through-statistical-modeling.md",
+    "time": "11:30 AM IST"
   }
 ]

@@ -11,7 +11,8 @@
       "ml"
     ],
     "readTime": "4 min",
-    "file": "blogs/ml/adversarial-robustness-in-deep-learning.md"
+    "file": "blogs/ml/adversarial-robustness-in-deep-learning.md",
+    "time": "07:04 PM IST"
   },
   {
     "id": "blogs/ml/explainable-ai-techniques.md",
@@ -25,7 +26,8 @@
       "ml"
     ],
     "readTime": "4 min",
-    "file": "blogs/ml/explainable-ai-techniques.md"
+    "file": "blogs/ml/explainable-ai-techniques.md",
+    "time": "09:22 AM IST"
   },
   {
     "id": "blogs/ml/transfer-learning-in-machine-learning.md",
@@ -39,7 +41,8 @@
       "ml"
     ],
     "readTime": "4 min",
-    "file": "blogs/ml/transfer-learning-in-machine-learning.md"
+    "file": "blogs/ml/transfer-learning-in-machine-learning.md",
+    "time": "09:21 AM IST"
   },
   {
     "id": "blogs/ml/time-series-forecasting-with-generative-models.md",
@@ -53,7 +56,8 @@
       "ml"
     ],
     "readTime": "4 min",
-    "file": "blogs/ml/time-series-forecasting-with-generative-models.md"
+    "file": "blogs/ml/time-series-forecasting-with-generative-models.md",
+    "time": "11:55 AM IST"
   },
   {
     "id": "blogs/ml/graph-neural-networks-tutorial.md",
@@ -67,6 +71,7 @@
       "ml"
     ],
     "readTime": "3 min",
-    "file": "blogs/ml/graph-neural-networks-tutorial.md"
+    "file": "blogs/ml/graph-neural-networks-tutorial.md",
+    "time": "08:15 AM IST"
   }
 ]

@@ -108,12 +108,12 @@ function applyCategoryTheme(cat) {
         const sched = DOMAIN_SCHEDULE[cat];
         if (sched && sched.day) {
             scheduleBadge.innerHTML = `
-                <span class="sched-icon">🗓️</span>
+                <span class="sched-icon"></span>
                 <span>Fresh articles drop every <strong>${sched.day}</strong> — live by <strong>${sched.time}</strong></span>
             `;
             scheduleBadge.style.display = 'flex';
         } else {
-            scheduleBadge.innerHTML = `<span class="sched-icon">📡</span><span>Published as breaking news arrives</span>`;
+            scheduleBadge.innerHTML = `<span class="sched-icon"></span><span>Published as breaking news arrives</span>`;
             scheduleBadge.style.display = 'flex';
         }
     }
@@ -154,7 +154,7 @@ async function renderBlogList() {
       <span class="blog-item-num">${String(idx + 1).padStart(2, '0')}</span>
       <div class="blog-item-body">
         <div class="blog-item-meta">
-          <span class="blog-item-date">${formatDate(blog.date)}</span>
+          <span class="blog-item-date">${formatDate(blog.date, blog.time)}</span>
           ${(blog.tags || []).slice(0, 2).map(tag =>
         `<span class="blog-item-tag" style="background:${meta.bgColor};color:${meta.color}">#${tag}</span>`
     ).join('')}
@@ -162,7 +162,7 @@ async function renderBlogList() {
         <h2 class="blog-item-title">${escapeHtml(blog.title)}</h2>
         <p class="blog-item-desc">${escapeHtml(blog.description)}</p>
         <div class="blog-item-footer">
-          <span class="read-time">📖 ${blog.readTime} read</span>
+          <span class="read-time">${blog.readTime} read</span>
         </div>
       </div>
       <span class="blog-item-arrow">→</span>

@@ -78,7 +78,7 @@ async function loadPost() {
 
     // Header
     document.getElementById('postTitleH1').textContent = blog.title;
-    document.getElementById('postDate').textContent = formatDate(blog.date);
+    document.getElementById('postDate').textContent = formatDate(blog.date, blog.time);
 
     const catBadge = document.getElementById('postCatBadge');
     if (catBadge) {
@@ -87,7 +87,7 @@ async function loadPost() {
     }
 
     const readTimeEl = document.getElementById('postReadTime');
-    if (readTimeEl) readTimeEl.textContent = `📖 ${blog.readTime} read`;
+    if (readTimeEl) readTimeEl.textContent = `${blog.readTime} read`;
 
     // Active nav link
     document.querySelectorAll('.nav-link[href]').forEach(link => {

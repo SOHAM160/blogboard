@@ -1,6 +1,6 @@
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from blogboard.graph.state import BlogState
 from blogboard.services.llm import LLMAgentService
 from blogboard.services.storage import R2StorageService
@@ -90,6 +90,7 @@ def validator_node(state: BlogState) -> BlogState:
         "title": title,
         "description": description,
         "date": date,
+        "time": datetime.now(timezone(timedelta(hours=5, minutes=30))).strftime("%I:%M %p IST"),
         "tags": [domain],
         "readTime": state.get("read_time", "5 min"),
         "file": md_relative,

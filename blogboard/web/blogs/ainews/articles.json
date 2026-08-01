@@ -11,7 +11,8 @@
       "ainews"
     ],
     "readTime": "2 min",
-    "file": "blogs/ainews/latest-ai-news-update.md"
+    "file": "blogs/ainews/latest-ai-news-update.md",
+    "time": "09:45 AM IST"
   },
   {
     "id": "blogs/ainews/latest-ai-news.md",
@@ -25,7 +26,8 @@
       "ainews"
     ],
     "readTime": "3 min",
-    "file": "blogs/ainews/latest-ai-news.md"
+    "file": "blogs/ainews/latest-ai-news.md",
+    "time": "08:38 PM IST"
   },
   {
     "id": "blogs/ainews/latest-ai-news-roundup.md",
@@ -39,6 +41,7 @@
       "ainews"
     ],
     "readTime": "2 min",
-    "file": "blogs/ainews/latest-ai-news-roundup.md"
+    "file": "blogs/ainews/latest-ai-news-roundup.md",
+    "time": "10:12 AM IST"
   }
 ]
