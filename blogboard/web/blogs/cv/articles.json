@@ -11,8 +11,7 @@
       "cv"
     ],
     "readTime": "3 min",
-    "file": "blogs/cv/explainable-computer-vision.md",
-    "time": "06:09 PM IST"
+    "file": "blogs/cv/explainable-computer-vision.md"
   },
   {
     "id": "blogs/cv/computer-vision-for-edge-devices.md",
@@ -26,8 +25,7 @@
       "cv"
     ],
     "readTime": "4 min",
-    "file": "blogs/cv/computer-vision-for-edge-devices.md",
-    "time": "08:14 PM IST"
+    "file": "blogs/cv/computer-vision-for-edge-devices.md"
   },
   {
     "id": "blogs/cv/multimodal-computer-vision-tutorial.md",
@@ -41,8 +39,7 @@
       "cv"
     ],
     "readTime": "4 min",
-    "file": "blogs/cv/multimodal-computer-vision-tutorial.md",
-    "time": "09:00 AM IST"
+    "file": "blogs/cv/multimodal-computer-vision-tutorial.md"
   },
   {
     "id": "blogs/cv/adversarial-robustness-in-computer-vision.md",
@@ -56,7 +53,6 @@
       "cv"
     ],
     "readTime": "4 min",
-    "file": "blogs/cv/adversarial-robustness-in-computer-vision.md",
-    "time": "09:00 PM IST"
+    "file": "blogs/cv/adversarial-robustness-in-computer-vision.md"
   }
 ]

@@ -146,6 +146,19 @@ def main():
         logger.error(f"❌ Sync failed: {e}")
         traceback.print_exc()
 
+    # 4. Push updates to GitHub so Vercel can deploy them
+    logger.info("\n🚀 Pushing updates to GitHub...")
+    try:
+        import subprocess
+        subprocess.run(["git", "add", "."], check=True, cwd=str(ROOT_DIR))
+        # Commit might fail if there's nothing to commit, so we don't use check=True here
+        subprocess.run(["git", "commit", "-m", f"Auto-generated articles for {today}"], cwd=str(ROOT_DIR))
+        subprocess.run(["git", "push"], check=True, cwd=str(ROOT_DIR))
+        logger.info("✅ GitHub push complete! Vercel will now deploy the updates.")
+    except Exception as e:
+        logger.error(f"❌ GitHub push failed: {e}")
+        traceback.print_exc()
+
     logger.info(f"\n{'='*60}")
     logger.info(f"  🎉 Daily generation finished at {datetime.now(ist).strftime('%H:%M:%S')} IST")
     logger.info(f"{'='*60}")
