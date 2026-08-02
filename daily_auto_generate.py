@@ -81,6 +81,77 @@ def sync_r2_to_local():
             logger.info(f"  ⏭️  {cat} — no articles yet")
 
 
+def prune_excess_articles(max_total=60):
+    """
+    Ensures that the total number of articles across all domains does not exceed max_total.
+    If it does, the OLDEST articles are removed from R2 Storage and local filesystem, 
+    and the corresponding domain's articles.json is updated.
+    """
+    from blogboard.services.storage import R2StorageService
+    storage = R2StorageService()
+    
+    all_categories = ["ml", "dl", "nlp", "cv", "genai", "ainews", "statistics"]
+    all_articles = []
+    
+    # 1. Collect all articles from R2
+    for cat in all_categories:
+        articles = storage.get_articles_json(cat)
+        for article in articles:
+            article['_cat'] = cat  # Keep track of which category this belongs to
+            all_articles.append(article)
+            
+    if len(all_articles) <= max_total:
+        logger.info(f"  ✅ Total articles ({len(all_articles)}) is within limit ({max_total}). No pruning needed.")
+        return
+
+    def parse_date(date_str):
+        try:
+            return datetime.strptime(date_str.strip(), "%B %d, %Y")
+        except:
+            return datetime.min
+
+    # 2. Sort all articles by date (oldest first). 
+    all_articles.sort(key=lambda x: parse_date(x.get("date", "")))
+    
+    # 3. Determine how many to delete
+    excess_count = len(all_articles) - max_total
+    articles_to_delete = all_articles[:excess_count]
+    
+    logger.info(f"  🗑️ Pruning {excess_count} oldest articles to maintain limit of {max_total}...")
+    
+    # 4. Group deletions by category and remove from R2 and Local
+    web_dir = ROOT_DIR / "blogboard" / "web"
+    cat_to_remaining = {}
+    
+    for cat in all_categories:
+        cat_to_remaining[cat] = [a for a in storage.get_articles_json(cat)]
+        
+    for article in articles_to_delete:
+        cat = article['_cat']
+        file_key = article.get("file", "")
+        article_id = article.get("id", "")
+        
+        # Remove from R2
+        if file_key:
+            storage.delete_object(file_key)
+            
+            # Remove locally so git removes it
+            local_path = web_dir / file_key
+            if local_path.exists():
+                local_path.unlink()
+                
+        # Remove from the remaining list for this category
+        cat_to_remaining[cat] = [a for a in cat_to_remaining[cat] if a.get("id") != article_id]
+        logger.info(f"    - Deleted '{article.get('title')}' (from {cat}, {article.get('date')})")
+        
+    # 5. Save updated articles.json to R2 for affected categories
+    deleted_cats = set(a['_cat'] for a in articles_to_delete)
+    for cat in deleted_cats:
+        storage.save_articles_json(cat, cat_to_remaining[cat])
+        logger.info(f"    - Updated {cat}/articles.json in R2")
+
+
+
 def generate_with_retry(graph, state, config, max_retries=3, delay=60):
     """Try to generate an article, retrying on rate limit errors."""
     for attempt in range(max_retries):
@@ -137,7 +208,15 @@ def main():
         logger.error(f"  ❌ AI News generation failed: {e}")
         traceback.print_exc()
 
-    # 3. Sync everything from R2 to local
+    # 3. Prune old articles if over limit
+    logger.info("\n🧹 Checking article limits...")
+    try:
+        prune_excess_articles(60)
+    except Exception as e:
+        logger.error(f"❌ Pruning failed: {e}")
+        traceback.print_exc()
+
+    # 4. Sync everything from R2 to local
     logger.info("\n📥 Syncing articles from R2 to local web folder...")
     try:
         sync_r2_to_local()
@@ -146,7 +225,7 @@ def main():
         logger.error(f"❌ Sync failed: {e}")
         traceback.print_exc()
 
-    # 4. Push updates to GitHub so Vercel can deploy them
+    # 5. Push updates to GitHub so Vercel can deploy them
     logger.info("\n🚀 Pushing updates to GitHub...")
     try:
         import subprocess

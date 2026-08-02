@@ -52,6 +52,16 @@ class R2StorageService:
             print(f"[ERROR] Failed to upload {key} to R2: {e}")
             return False
 
+    def delete_object(self, key: str) -> bool:
+        """Deletes an object from R2."""
+        try:
+            self.client.delete_object(Bucket=self.bucket_name, Key=key)
+            print(f"  🗑️ Deleted from R2: {self.bucket_name}/{key}")
+            return True
+        except ClientError as e:
+            print(f"[ERROR] Failed to delete {key} from R2: {e}")
+            return False
+
     def get_json(self, key: str) -> Optional[List[Dict[str, Any]]]:
         """Fetches and parses JSON from R2."""
         data = self.get_object(key)
