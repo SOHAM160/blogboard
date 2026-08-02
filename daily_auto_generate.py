@@ -1,9 +1,9 @@
 """
 daily_auto_generate.py — Automatic daily article generation + sync.
 
-This script is called by Windows Task Scheduler every day.
-It uses LangGraph AI Agents to generate 1 tutorial article (auto-rotating domains) 
-and 1 AI news article, then syncs all articles from R2 to the local web folder.
+This script is called by GitHub Actions every day at 6:00 AM IST.
+It uses the LangGraph News Agent to generate 2 AI news articles based on
+real-world current events, then syncs all articles from R2 to the local web folder.
 """
 
 import sys
@@ -180,32 +180,32 @@ def main():
 
     from blogboard.graph.graph import build_graph
 
-    # 1. Generate tutorial article (auto-selects least recently updated domain)
-    logger.info("\n[1/2] Generating AI tutorial article...")
+    # 1. Generate first AI News article (Research & Breakthroughs focus)
+    logger.info("\n[1/2] Generating AI News article (Research & Breakthroughs)...")
     try:
         graph = build_graph()
-        state = {"date": today, "dry_run": False}
-        config = {"configurable": {"thread_id": f"auto-tutorial-{today}"}}
+        state = {"date": today, "dry_run": False, "domain": "ainews", "topic": "Latest AI Research & Breakthroughs"}
+        config = {"configurable": {"thread_id": f"auto-ainews-research-{today}"}}
         result = generate_with_retry(graph, state, config)
-        logger.info(f"  ✅ AI Tutorial: {result.get('title', '?')} ({result.get('domain', '?')})")
+        logger.info(f"  ✅ AI News (Research): {result.get('title', '?')}")
     except Exception as e:
-        logger.error(f"  ❌ AI Tutorial generation failed: {e}")
+        logger.error(f"  ❌ AI News (Research) generation failed: {e}")
         traceback.print_exc()
 
     # Wait before next generation to avoid rate limits
     logger.info("  ⏳ Waiting 60s before next generation...")
     time.sleep(60)
 
-    # 2. Generate AI News article
-    logger.info("\n[2/2] Generating AI News article...")
+    # 2. Generate second AI News article (Industry & Products focus)
+    logger.info("\n[2/2] Generating AI News article (Industry & Products)...")
     try:
         graph2 = build_graph()
-        state2 = {"date": today, "dry_run": False, "domain": "ainews"}
-        config2 = {"configurable": {"thread_id": f"auto-ainews-{today}"}}
+        state2 = {"date": today, "dry_run": False, "domain": "ainews", "topic": "AI Industry News & Product Launches"}
+        config2 = {"configurable": {"thread_id": f"auto-ainews-industry-{today}"}}
         result2 = generate_with_retry(graph2, state2, config2)
-        logger.info(f"  ✅ AI News: {result2.get('title', '?')}")
+        logger.info(f"  ✅ AI News (Industry): {result2.get('title', '?')}")
     except Exception as e:
-        logger.error(f"  ❌ AI News generation failed: {e}")
+        logger.error(f"  ❌ AI News (Industry) generation failed: {e}")
         traceback.print_exc()
 
     # 3. Prune old articles if over limit
