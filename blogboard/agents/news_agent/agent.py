@@ -12,12 +12,13 @@ def _read_time(text: str) -> str:
 def news_node(state: BlogState) -> BlogState:
     print("  => [NewsAgent] Running...")
     
-    # We enforce ainews domain for this agent
-    domain = "ainews"
-    topic = state.get("topic", "Latest AI News")
+    # Retrieve domain from state
+    domain = state.get("domain", "ainews")
     
     tags_config = app_settings.tags.model_dump()
     cat_label = tags_config.get(domain, {}).get("label", domain)
+    
+    topic = state.get("topic", f"Latest {cat_label} News and Breakthroughs")
     
     if state.get("dry_run"):
         print("  [DRY RUN] Skipping News Research & Generation.")

@@ -14,17 +14,14 @@ def _route_start(state: BlogState) -> str:
     if state.get("skipped"):
         return END
 
-    if state.get("domain") == "ainews":
-        return "news_agent"
-    return "tutorial_agent"
+    # Force all domains to use the news_agent for live scraping
+    return "news_agent"
 
 def _route_after_validator(state: BlogState) -> str:
     """Supervisor logic handling the Revision loop."""
     if state.get("revision_needed"):
         # Route back to the specific generator if rejected
-        if state.get("domain") == "ainews":
-            return "news_agent"
-        return "tutorial_agent"
+        return "news_agent"
     
     # If approved by Validator, the graph perfectly concludes.
     return END
