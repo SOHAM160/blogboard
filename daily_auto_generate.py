@@ -180,33 +180,32 @@ def main():
 
     from blogboard.graph.graph import build_graph
 
-    # 1. Generate first AI News article (Research & Breakthroughs focus)
-    logger.info("\n[1/2] Generating AI News article (Research & Breakthroughs)...")
-    try:
-        graph = build_graph()
-        state = {"date": today, "dry_run": False, "domain": "ainews", "topic": "Latest AI Research & Breakthroughs"}
-        config = {"configurable": {"thread_id": f"auto-ainews-research-{today}"}}
-        result = generate_with_retry(graph, state, config)
-        logger.info(f"  ✅ AI News (Research): {result.get('title', '?')}")
-    except Exception as e:
-        logger.error(f"  ❌ AI News (Research) generation failed: {e}")
-        traceback.print_exc()
+    all_domains = ["ml", "dl", "nlp", "cv", "genai", "statistics", "ainews"]
+    total = len(all_domains)
+    
+    logger.info(f"\n🚀 Starting generation for {total} fields...")
 
-    # Wait before next generation to avoid rate limits
-    logger.info("  ⏳ Waiting 60s before next generation...")
-    time.sleep(60)
+    for idx, domain in enumerate(all_domains, 1):
+        logger.info(f"\n[{idx}/{total}] Generating article for '{domain}'...")
+        try:
+            graph = build_graph()
+            state = {"date": today, "dry_run": False, "domain": domain}
+            
+            # If ainews, we can provide a default topic context for the agent
+            if domain == "ainews":
+                state["topic"] = "Daily Latest AI News & Trends"
+            
+            config = {"configurable": {"thread_id": f"auto-{domain}-{today}"}}
+            result = generate_with_retry(graph, state, config)
+            logger.info(f"  ✅ {domain.upper()}: {result.get('title', '?')}")
+        except Exception as e:
+            logger.error(f"  ❌ {domain.upper()} generation failed: {e}")
+            traceback.print_exc()
 
-    # 2. Generate second AI News article (Industry & Products focus)
-    logger.info("\n[2/2] Generating AI News article (Industry & Products)...")
-    try:
-        graph2 = build_graph()
-        state2 = {"date": today, "dry_run": False, "domain": "ainews", "topic": "AI Industry News & Product Launches"}
-        config2 = {"configurable": {"thread_id": f"auto-ainews-industry-{today}"}}
-        result2 = generate_with_retry(graph2, state2, config2)
-        logger.info(f"  ✅ AI News (Industry): {result2.get('title', '?')}")
-    except Exception as e:
-        logger.error(f"  ❌ AI News (Industry) generation failed: {e}")
-        traceback.print_exc()
+        # Wait before next generation to avoid rate limits (Groq free tier)
+        if idx < total:
+            logger.info("  ⏳ Waiting 60s before next generation...")
+            time.sleep(60)
 
     # 3. Prune old articles if over limit
     logger.info("\n🧹 Checking article limits...")
