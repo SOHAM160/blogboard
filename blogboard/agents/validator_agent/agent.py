@@ -47,14 +47,14 @@ def validator_node(state: BlogState) -> BlogState:
         feedback = data.get("feedback", "")
         title = data.get("title", topic)
         description = data.get("description", "A blog post about " + topic)
-        slug_value = data.get("slug", title.lower().replace(" ", "-"))
+        slug_value = f"{data.get('slug', title.lower().replace(' ', '-'))}-{datetime.now().strftime('%Y%m%d%H%M%S')}"
     except json.JSONDecodeError:
         print("  [WARN] Validator failed to return JSON. Forcing approval fallback.")
         approved = True
         feedback = ""
         title = topic[:70] if topic else "fallback"
         description = "A blog post about " + title
-        slug_value = title.lower().replace(" ", "-")
+        slug_value = f"{title.lower().replace(' ', '-')}-{datetime.now().strftime('%Y%m%d%H%M%S')}"
         
     if not approved and current_revision >= 3:
         print("  [WARN] Max revisions reached. Forcing approval.")
