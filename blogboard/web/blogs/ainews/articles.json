@@ -1,5 +1,20 @@
 [
   {
+    "id": "blogs/ainews/daily-ai-news-trends-20260806200729.md",
+    "category": "ainews",
+    "topic": "Daily Latest AI News & Trends",
+    "subtopics": "",
+    "title": "AI News: Trends & Concerns",
+    "description": "Stay updated on the latest AI news and trends, exploring concerns over AI-generated content and its impact on the media industry.",
+    "date": "August 6, 2026",
+    "time": "08:07 PM IST",
+    "tags": [
+      "ainews"
+    ],
+    "readTime": "2 min",
+    "file": "blogs/ainews/daily-ai-news-trends-20260806200729.md"
+  },
+  {
     "id": "blogs/ainews/latest-ai-news.md",
     "category": "ainews",
     "topic": "Latest AI News",

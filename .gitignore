@@ -171,4 +171,4 @@ marimo/_lsp/
 __marimo__/
 
 # BlogBoard Frontend Config
-blogboard/web/js/config.js
+# blogboard/web/js/config.js  ← REMOVED from gitignore so Vercel can deploy it
