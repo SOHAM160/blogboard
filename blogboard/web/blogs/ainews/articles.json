@@ -15,6 +15,21 @@
     "file": "blogs/ainews/daily-ai-news-trends-20260806200729.md"
   },
   {
+    "id": "blogs/ainews/daily-ai-news-trends-20260806150035.md",
+    "category": "ainews",
+    "topic": "Daily Latest AI News & Trends",
+    "subtopics": "",
+    "title": "AI News & Trends",
+    "description": "Stay updated on the latest AI news and trends shaping industries",
+    "date": "August 6, 2026",
+    "time": "08:30 PM IST",
+    "tags": [
+      "ainews"
+    ],
+    "readTime": "3 min",
+    "file": "blogs/ainews/daily-ai-news-trends-20260806150035.md"
+  },
+  {
     "id": "blogs/ainews/latest-ai-news.md",
     "category": "ainews",
     "topic": "Latest AI News",
