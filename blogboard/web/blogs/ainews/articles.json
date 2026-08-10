@@ -90,6 +90,21 @@
     "file": "blogs/ainews/latest-ai-news.md"
   },
   {
+    "id": "blogs/ainews/latest-ai-news-trends-20260810024853.md",
+    "category": "ainews",
+    "topic": "Daily Latest AI News & Trends",
+    "subtopics": "",
+    "title": "AI News & Trends",
+    "description": "Stay updated on the latest AI news, trends, and developments in industries like news publishing and medical imaging.",
+    "date": "August 10, 2026",
+    "time": "08:18 AM IST",
+    "tags": [
+      "ainews"
+    ],
+    "readTime": "2 min",
+    "file": "blogs/ainews/latest-ai-news-trends-20260810024853.md"
+  },
+  {
     "id": "blogs/ainews/latest-ai-news-update.md",
     "category": "ainews",
     "topic": "Latest AI News",
