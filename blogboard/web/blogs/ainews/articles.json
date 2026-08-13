@@ -75,19 +75,19 @@
     "file": "blogs/ainews/daily-ai-news-trends-20260806150035.md"
   },
   {
-    "id": "blogs/ainews/latest-ai-news.md",
+    "id": "blogs/ainews/daily-ai-news-trends-20260813031550.md",
     "category": "ainews",
-    "topic": "Latest AI News",
+    "topic": "Daily Latest AI News & Trends",
     "subtopics": "",
-    "title": "AI News Update",
-    "description": "Discover the latest AI developments and their impact on industries",
-    "date": "August 3, 2026",
-    "time": "01:00 AM IST",
+    "title": "AI News & Trends",
+    "description": "Stay updated on the latest AI news, trends, and developments in finance, wellness, and job market",
+    "date": "August 13, 2026",
+    "time": "08:45 AM IST",
     "tags": [
       "ainews"
     ],
-    "readTime": "2 min",
-    "file": "blogs/ainews/latest-ai-news.md"
+    "readTime": "3 min",
+    "file": "blogs/ainews/daily-ai-news-trends-20260813031550.md"
   },
   {
     "id": "blogs/ainews/latest-ai-news-trends-20260812031150.md",
@@ -133,33 +133,5 @@
     ],
     "readTime": "2 min",
     "file": "blogs/ainews/latest-ai-news-trends-20260810024853.md"
-  },
-  {
-    "id": "blogs/ainews/latest-ai-news-update.md",
-    "category": "ainews",
-    "topic": "Latest AI News",
-    "subtopics": "",
-    "title": "AI News Update",
-    "description": "Latest AI trends & insights: Chinese AI models, AI's stock market impact, and AI's effect on employment",
-    "date": "August 1, 2026",
-    "tags": [
-      "ainews"
-    ],
-    "readTime": "2 min",
-    "file": "blogs/ainews/latest-ai-news-update.md"
-  },
-  {
-    "id": "blogs/ainews/latest-ai-news-roundup.md",
-    "category": "ainews",
-    "topic": "Latest AI News",
-    "subtopics": "",
-    "title": "AI News Update",
-    "description": "Discover the latest AI trends and insights, from Chinese AI models to forward-deployed engineers",
-    "date": "August 1, 2026",
-    "tags": [
-      "ainews"
-    ],
-    "readTime": "2 min",
-    "file": "blogs/ainews/latest-ai-news-roundup.md"
   }
 ]
